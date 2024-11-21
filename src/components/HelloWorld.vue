@@ -1,19 +1,64 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 defineProps<{
   msg: string
 }>()
 
-const message = 'You’ve successfully created a project with'
+const objectOffers = {
+  id: 'container',
+}
+const interpolation = 'this is interpolation'
+const directive = 'this is directive'
+
+const number = 0
+const ok = true
+const message = 'Hello World'
+
+const doSomething = () => {
+  alert('hello')
+}
+
+const eventName = 'click'
+const doSomethingNew = () => {
+  alert('using argu dynamic')
+}
+
+const attributeName = ref('href')
+const url = ref('https://example.com')
 </script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      {{ message }}
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-    </h3>
+  <div class="text">
+    <!-- using interpolation -->
+    <p>Using text interpolation: {{ interpolation }}</p>
+    <!-- using interpolation -->
+
+    <!-- using directieve -->
+    <p>Using v-html directive: <span v-html="directive"></span></p>
+    <p v-if="ok">Now you see me</p>
+    <a v-on:click="doSomething"> Click Me </a>
+    <!-- shorthand -->
+    <a @click="doSomething"> Click Me </a>
+    <!-- using directieve -->
+
+    <!-- attribut bindings -->
+    <p v-bind="objectOffers">wd</p>
+    <p id="objectOffers">wd</p>
+    <button v-bind:disabled="true">disable button</button>
+    <!-- attribut bindings -->
+
+    <!-- javascript expresion -->
+    <span> {{ number + 1 }}</span>
+    <button>{{ ok ? 'YES' : 'NO' }}</button>
+    <p>{{ message.split('').reverse().join('') }}</p>
+    <!-- javascript expresion -->
+
+    <!--  arguments dynamic  -->
+    <a v-bind:[attributeName]="url"> Dynamic Link </a>
+    <a :[attributeName]="url"> Dynamic Link </a>
+    <a v-on:[eventName]="doSomethingNew"> arguments dynamic </a>
+    <a @[eventName]="doSomethingNew"> arguments dynamic </a>
+    <!--  arguments dynamic  -->
   </div>
 </template>
 
@@ -24,9 +69,22 @@ h1 {
   position: relative;
   top: -10px;
 }
+text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
 h3 {
   font-size: 1.2rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
 
 .greetings h1,
