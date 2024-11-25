@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-defineProps<{
-  msg: string
-}>()
+// defineProps<{
+//   msg: string
+// }>()
 
 const objectOffers = {
   id: 'container',
 }
+
 const interpolation = 'this is interpolation'
 const directive = 'this is directive'
-
 const number = 0
 const ok = true
 const message = 'Hello World'
