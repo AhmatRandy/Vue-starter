@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 // defineProps<{
 //   msg: string
 // }>()
@@ -7,6 +7,13 @@ import { ref } from 'vue'
 const objectOffers = {
   id: 'container',
 }
+
+const isActive = ref(true)
+const hasError = ref(false)
+
+const count = ref(0)
+const object = { id: ref(1) }
+// const { id } = object
 
 const interpolation = 'this is interpolation'
 const directive = 'this is directive'
@@ -21,6 +28,15 @@ const doSomething = () => {
 const eventName = 'click'
 const doSomethingNew = () => {
   alert('using argu dynamic')
+}
+
+const changeColor = () => {
+  isActive.value = !isActive.value
+  hasError.value = !hasError.value
+}
+
+const addCount = () => {
+  count.value++
 }
 
 const attributeName = ref('href')
@@ -60,6 +76,15 @@ const url = ref('https://example.com')
     <a @[eventName]="doSomethingNew"> arguments dynamic </a>
     <!--  arguments dynamic  -->
   </div>
+
+  <!-- ref -->
+  <button @click="addCount">{{ count }}</button>
+  <span>{{ object.id }}</span>
+  <!-- ref -->
+
+  <div class="static" @click="changeColor" :class="{ active: isActive, 'text-danger': hasError }">
+    oke
+  </div>
 </template>
 
 <style scoped>
@@ -68,6 +93,18 @@ h1 {
   font-size: 2.6rem;
   position: relative;
   top: -10px;
+}
+
+.static.text-danger {
+  color: red;
+}
+
+.static {
+  cursor: pointer;
+}
+
+.static.active {
+  color: aqua;
 }
 text {
   display: flex;
