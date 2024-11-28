@@ -21,23 +21,8 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
 
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <p>Email: info@example.com</p>
-          <p>Phone: (123) 456-7890</p>
-        </div>
-        <div class="footer-section">
-          <h3>Follow Us</h3>
-          <div class="social-links">
-            <a href="#" class="social-link">Twitter</a>
-            <a href="#" class="social-link">Facebook</a>
-            <a href="#" class="social-link">LinkedIn</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Your Company. All rights reserved.</p>
-        </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
       </div>
     </footer>
   </div>
@@ -165,30 +150,25 @@ body {
 }
 
 .footer {
-  background-color: #1e293b;
+  background-color: #fff;
   color: #ffffff;
-  padding: 3rem 0 1.5rem;
-  margin-top: 2rem;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #e2e8f0;
 }
 
 .footer-section p {
   color: #cbd5e1;
-  margin: 0.5rem 0;
+}
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #2563eb;
 }
 
 .social-links {
@@ -207,7 +187,6 @@ body {
 }
 
 .footer-bottom {
-  grid-column: 1 / -1;
   text-align: center;
   padding-top: 2rem;
   border-top: 1px solid #334155;
