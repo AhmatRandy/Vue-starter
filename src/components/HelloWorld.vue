@@ -254,9 +254,11 @@ const submitMessageTrim = () => {
 
       <div class="feature-card">
         <h3>javascript expresion</h3>
-        <span> {{ number + 1 }}</span>
-        <button>{{ ok ? 'YES' : 'NO' }}</button>
-        <p>{{ message.split('').reverse().join('') }}</p>
+        <div>
+          <span> {{ number + 1 }}</span>
+          <button>{{ ok ? 'YES' : 'NO' }}</button>
+          <p>{{ message.split('').reverse().join('') }}</p>
+        </div>
       </div>
 
       <div class="feature-card">
