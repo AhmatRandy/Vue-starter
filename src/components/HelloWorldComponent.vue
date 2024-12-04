@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useCounter } from '../composables/useCounter'
-// import MyComponent from './MyComponent.vue'
 
 // State management
 const state = reactive({

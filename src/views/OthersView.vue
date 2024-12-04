@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, watchPostEffect } from 'vue'
-import Define from '../components/Define.vue'
+import CounterComponentContainer from '../components/CounterComponentContainer.vue'
 
 const question = ref('')
 const answer = ref('Questions usually contain a question mark. ;-)')
@@ -132,7 +132,10 @@ const incrementPost = () => {
     </div>
 
     <div class="section-watch">
-      <Define v-bind="dataProps" class="okee" />
+      <DefineComponent :name="dataProps.name" :age="dataProps.age" />
+    </div>
+    <div class="section-watch">
+      <CounterComponentContainer />
     </div>
   </div>
 </template>
