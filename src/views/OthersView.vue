@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, watchPostEffect } from 'vue'
-import CounterComponentContainer from '../components/CounterComponentContainer.vue'
+import CounterParet from '../components/CounterParet.vue'
+import AksesibilitasComponent from '../components/AksesibilitasComponent.vue'
 
 const question = ref('')
 const answer = ref('Questions usually contain a question mark. ;-)')
@@ -135,7 +136,11 @@ const incrementPost = () => {
       <DefineComponent :name="dataProps.name" :age="dataProps.age" />
     </div>
     <div class="section-watch">
-      <CounterComponentContainer />
+      <CounterParet />
+    </div>
+    <div class="section-watch">
+      <h1 class="todo-title">Aksesibilitas</h1>
+      <AksesibilitasComponent />
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import CounterComponentButton from './CounterComponentButton.vue'
+import CounterButton from './CounterButton.vue'
 
 const count = ref(0)
 const lastAction = ref('')
@@ -33,11 +33,7 @@ const handleSubmit = (id: number, value: string) => {
       <h1>{{ count }}</h1>
     </div>
 
-    <CounterComponentButton
-      @increase="handleIncrease"
-      @reset="handleReset"
-      @submit="handleSubmit"
-    />
+    <CounterButton @increase="handleIncrease" @reset="handleReset" @submit="handleSubmit" />
 
     <div class="action-info" v-if="lastAction">
       <p>Aksi terakhir: {{ lastAction }}</p>
