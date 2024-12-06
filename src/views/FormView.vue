@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 import CustomInput from '../components/CustomInput.vue'
 import UserForm from '../components/UserForm.vue'
+import ChildComponent from '../components/ChildComponent.vue'
 
 const inputValue = ref('')
 const userData = ref({
@@ -11,6 +12,10 @@ const userData = ref({
   email: '',
   username: '',
 })
+
+const messageFormParent = ref('')
+
+provide('messageFormParent', messageFormParent)
 
 const handleUpdate = () => {
   console.log('Form Data:', userData.value)
@@ -35,6 +40,10 @@ const handleUpdate = () => {
     <div class="preview">
       <h3>Preview Data:</h3>
       <pre>{{ userData }}</pre>
+    </div>
+    <div class="preview">
+      <input v-model="messageFormParent" />
+      <ChildComponent />
     </div>
   </div>
 </template>

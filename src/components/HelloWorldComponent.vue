@@ -1,6 +1,17 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import { computed, reactive, ref } from 'vue'
 import { useCounter } from '../composables/useCounter'
+
+// Get route instance
+const route = useRoute()
+
+// Get route params and query
+const routeInfo = computed(() => ({
+  id: route.params.id,
+  query: route.query,
+  fullPath: route.fullPath,
+}))
 
 // State management
 const state = reactive({
@@ -402,6 +413,15 @@ const submitMessageTrim = () => {
           <p>Current Message: "{{ msgTrim }}"</p>
           <button @click="submitMessageTrim">Submit</button>
           <p v-if="submittedMessageTrim">Submitted Message: "{{ submittedMessageTrim }}"</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <h3>Route Parameters Demo</h3>
+        <div>
+          <p>Current Route ID: {{ routeInfo.id || 'No ID' }}</p>
+          <p>Query Parameters: {{ JSON.stringify(routeInfo.query) || 'No Query' }}</p>
+          <p>Full Path: {{ routeInfo.fullPath }}</p>
         </div>
       </div>
     </section>

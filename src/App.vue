@@ -12,6 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/about" class="nav-link">About</RouterLink>
           <RouterLink to="/others" class="nav-link">Others</RouterLink>
           <RouterLink to="/form" class="nav-link">Form</RouterLink>
+          <RouterLink to="/async-component" class="nav-link">async component</RouterLink>
         </nav>
       </div>
     </header>
